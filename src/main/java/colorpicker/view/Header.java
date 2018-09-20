@@ -4,8 +4,6 @@ import colorpicker.presentationmodel.RootPM;
 import colorpicker.view.util.ViewMixin;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 
 /**
@@ -13,7 +11,8 @@ import javafx.scene.layout.Priority;
  */
 public class Header extends ToolBar implements ViewMixin{
 
-
+    private Button file;
+    private Button attributes;
 
     private final RootPM pm;
 
@@ -29,12 +28,13 @@ public class Header extends ToolBar implements ViewMixin{
 
     @Override
     public void initializeParts() {
-
+        file = new Button("File");
+        attributes = new Button("Attributes");
     }
 
     @Override
     public void layoutParts() {
-
+        getItems().addAll(file, attributes);
     }
 
     @Override

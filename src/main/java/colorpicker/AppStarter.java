@@ -20,7 +20,7 @@ public class AppStarter extends Application {
 
 		primaryStage.titleProperty().bind(pm.applicationTitleProperty());
 		primaryStage.setScene(scene);
-		primaryStage.setWidth(1600);
+		primaryStage.setWidth(800);
 
 		primaryStage.show();
 	}
