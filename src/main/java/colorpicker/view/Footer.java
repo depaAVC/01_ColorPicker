@@ -6,6 +6,7 @@ import colorpicker.view.util.ViewMixin;
 import javafx.geometry.Insets;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -25,6 +26,16 @@ public class Footer extends VBox implements ViewMixin {
     private ScrollBar redSlider;
     private ScrollBar greenSlider;
     private ScrollBar blueSlider;
+
+    //decimal number textfields
+    private TextField redTF;
+    private TextField greenTF;
+    private TextField blueTF;
+
+    //HEX number textfields
+    private TextField redHexTF;
+    private TextField greenHexTF;
+    private TextField blueHexTF;
 
     //textfields
 
@@ -64,15 +75,26 @@ public class Footer extends VBox implements ViewMixin {
         blueSlider.setUnitIncrement(25);
         blueSlider.setStyle("-fx-background-color: blue;");
         blueSlider.setPrefWidth(250);
+
+        redTF = new TextField();
+        greenTF = new TextField();
+        blueTF = new TextField();
+
+        redHexTF = new TextField();
+        redHexTF.setDisable(true);
+        greenHexTF = new TextField();
+        greenHexTF.setDisable(true);
+        blueHexTF = new TextField();
+        blueHexTF.setDisable(true);
     }
 
     @Override
     public void layoutParts() {
         getChildren().addAll(row1, row2, row3);
 
-        row1.getChildren().addAll(redSlider);
-        row2.getChildren().addAll(greenSlider);
-        row3.getChildren().addAll(blueSlider);
+        row1.getChildren().addAll(redSlider, redTF, redHexTF);
+        row2.getChildren().addAll(greenSlider, greenTF, greenHexTF);
+        row3.getChildren().addAll(blueSlider, blueTF, blueHexTF);
     }
 
     @Override
