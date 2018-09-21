@@ -119,11 +119,11 @@ public class Footer extends VBox implements ViewMixin {
             redHexTF.setText( Integer.toHexString(pm.getRed()) );
         });
 
-        pm.redProperty().addListener( (observable, oldValue, newValue) -> {
+        pm.greenProperty().addListener( (observable, oldValue, newValue) -> {
             greenHexTF.setText( Integer.toHexString(pm.getGreen()) );
         });
 
-        pm.redProperty().addListener( (observable, oldValue, newValue) -> {
+        pm.blueProperty().addListener( (observable, oldValue, newValue) -> {
             blueHexTF.setText( Integer.toHexString(pm.getBlue()) );
         });
     }
