@@ -99,6 +99,8 @@ public class Footer extends VBox implements ViewMixin {
 
     @Override
     public void setupBindings() {
-
+        redSlider.valueProperty().bindBidirectional( pm.redProperty() );
+        greenSlider.valueProperty().bindBidirectional( pm.greenProperty() );
+        blueSlider.valueProperty().bindBidirectional( pm.blueProperty() );
     }
 }

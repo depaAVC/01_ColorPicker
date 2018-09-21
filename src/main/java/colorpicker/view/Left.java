@@ -28,11 +28,16 @@ public class Left extends VBox implements ViewMixin {
     @Override
     public void initializeParts() {
         colorPreview = new Rectangle(250, 250);
-        colorPreview.setFill(Color.RED);
+        colorPreview.setFill( pm.getColor() );
     }
 
     @Override
     public void layoutParts() {
         getChildren().addAll(colorPreview);
+    }
+
+    @Override
+    public void setupBindings() {
+        colorPreview.fillProperty().bind( pm.colorProperty() );
     }
 }
