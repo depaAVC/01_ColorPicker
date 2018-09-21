@@ -9,9 +9,6 @@ import javafx.scene.paint.Color;
 public class RootPM {
     private final StringProperty applicationTitle = new SimpleStringProperty("Color Picker");
 
-
-
-
     private final IntegerProperty red = new SimpleIntegerProperty(155);
     private final IntegerProperty green = new SimpleIntegerProperty(211);
     private final IntegerProperty blue = new SimpleIntegerProperty(0);

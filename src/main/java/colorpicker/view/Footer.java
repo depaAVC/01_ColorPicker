@@ -9,6 +9,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.converter.NumberStringConverter;
 
 /**
  * Created by Degonas on 29.04.2017.
@@ -82,10 +83,13 @@ public class Footer extends VBox implements ViewMixin {
 
         redHexTF = new TextField();
         redHexTF.setDisable(true);
+        redHexTF.setText( Integer.toHexString(pm.getRed()) );
         greenHexTF = new TextField();
         greenHexTF.setDisable(true);
+        greenHexTF.setText( Integer.toHexString(pm.getGreen()) );
         blueHexTF = new TextField();
         blueHexTF.setDisable(true);
+        blueHexTF.setText( Integer.toHexString(pm.getBlue()) );
     }
 
     @Override
@@ -102,5 +106,25 @@ public class Footer extends VBox implements ViewMixin {
         redSlider.valueProperty().bindBidirectional( pm.redProperty() );
         greenSlider.valueProperty().bindBidirectional( pm.greenProperty() );
         blueSlider.valueProperty().bindBidirectional( pm.blueProperty() );
+
+        redTF.textProperty().bindBidirectional( pm.redProperty(), new NumberStringConverter());
+        greenTF.textProperty().bindBidirectional( pm.greenProperty(), new NumberStringConverter() );
+        blueTF.textProperty().bindBidirectional( pm.blueProperty(), new NumberStringConverter() );
+        //handle exceptions: characters not allowed, value range 0-255.
+    }
+
+    @Override
+    public void addValueChangedListeners() {
+        pm.redProperty().addListener( (observable, oldValue, newValue) -> {
+            redHexTF.setText( Integer.toHexString(pm.getRed()) );
+        });
+
+        pm.redProperty().addListener( (observable, oldValue, newValue) -> {
+            greenHexTF.setText( Integer.toHexString(pm.getGreen()) );
+        });
+
+        pm.redProperty().addListener( (observable, oldValue, newValue) -> {
+            blueHexTF.setText( Integer.toHexString(pm.getBlue()) );
+        });
     }
 }
